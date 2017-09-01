@@ -1,3 +1,5 @@
-Colisão entre elipses. Toda vez que uma elipse toca uma lateral ou outra elipse as cores mudam.
+Pequeno jogo de colisão entre eclipses.
 
-Se for entre duas elipses, é escolhida uma cor entre as duas que já estão lá. Se for contra uma lateral, é randomizada uma nova cor para aquela elipse.
+A ideia é você conseguir colorir todas as eclipses com a _sua_ cor iniciada randomicamente. Se você tocar alguma das laterais, sua cor muda.
+
+Use W A S D para mover-se na janela e, uma vez que todas as eclipses forem pintadas com a sua cor o jogo é finalizado.
