@@ -6,9 +6,10 @@ public class Ball {
 
   float radius, m;
   boolean player;
+  
+  int idBall;
 
-
-  public Ball(float x, float y, float r_, boolean p) {
+  public Ball(float x, float y, float r_, boolean p, int id) {
     position = new PVector(x, y);
     radius = r_;
     m = radius*.1;
@@ -20,6 +21,7 @@ public class Ball {
       velocity = PVector.random2D();
       velocity.mult(3);
     }
+    idBall = id;
   }
 
   public void update() {

@@ -30,7 +30,7 @@ public class Color {
     other.colorBall.color3 = color3;
   }
   
-  public boolean checkColors (Ball balls[]) {
+  public boolean checkColors (ArrayList<Ball> balls) {
 
     int flag = 0;
 
@@ -39,7 +39,9 @@ public class Color {
         flag++;
     }
 
-    if (flag == balls.length)
+    score.colorfulBalls = flag;
+
+    if (flag == balls.size())
       return true;
     return false;
   }

@@ -9,10 +9,8 @@ class Ball {
   float radius, m;
   boolean player;
 
-  int idBall;
 
-
-  Ball(float x, float y, float r_, boolean p, int id) {
+  Ball(float x, float y, float r_, boolean p) {
     position = new PVector(x, y);
     radius = r_;
     m = radius*.1;
@@ -23,7 +21,6 @@ class Ball {
       velocity = PVector.random2D();
       velocity.mult(3);
     }
-    idBall = id;
   }
 
   void update() {
@@ -64,9 +61,6 @@ class Ball {
   }
 
   void checkCollision(Ball other) {
-
-    if (idBall == other.idBall)
-      return;
 
     PVector distanceVect = PVector.sub(other.position, position);
 
@@ -167,7 +161,7 @@ class Ball {
     ellipse(position.x, position.y, radius*2, radius*2);
   }
 
-  boolean checkColors (ArrayList<Ball> balls) {
+  boolean checkColors (Ball balls[]) {
 
     int flag = 0;
 
@@ -176,9 +170,7 @@ class Ball {
         flag++;
     }
     
-    score.colorfulBalls = flag;
-
-    if (flag == balls.size())
+    if (flag == balls.length)
       return true;
     return false;
   }
