@@ -175,6 +175,8 @@ class Ball {
       if ((b.color1 == color1) && (b.color2 == color2) && (b.color3 == color3))
         flag++;
     }
+    
+    score.colorfulBalls = flag;
 
     if (flag == balls.size())
       return true;

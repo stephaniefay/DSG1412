@@ -51,14 +51,13 @@ void draw() {
   if ((t%10 == 0) && (t>=10) && timerFlag) {
     balls.add(new Ball((int)(0 + (Math.random()*800)), (int)(0 + (Math.random()*600)), (int)(10 + (Math.random()*40)), false, (balls.size())));
     numOfBalls++;
-    timerFlag = !timerFlag; 
+    timerFlag = !timerFlag;
+  } else if (!timerFlag) {
+    if (t%10 != 0)
+      timerFlag = !timerFlag;
   }
-  else if (!timerFlag) {
-   if (t%10 != 0)
-     timerFlag = !timerFlag;
-  }
-  
-  
+
+  score.calculatePoints(numOfBalls);
 }
 
 // Use class Control instead
