@@ -59,7 +59,7 @@ public class Ball {
     }
   }
 
-  public void checkCollision(Ball other) {
+  public void checkCollision(Ball other, Score s) {
 
     PVector distanceVect = PVector.sub(other.position, position);
 

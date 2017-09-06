@@ -33,17 +33,17 @@ void draw() {
       score.updateScore(numOfBalls);
 
       for (int i = 0; i < numOfBalls; i++) {
-        b.checkCollision(balls.get(i));
+        b.checkCollision(balls.get(i), score);
       }
     }
 
-    boolean test = balls.get(0).colorBall.checkColors(balls);
+    boolean test = balls.get(0).colorBall.checkColors(balls, score);
     if (test)
       validGame = !validGame;
   } else {
     background(0);
     textSize(32);
-    text("Game Over - You Won", mouseX, mouseY);
+    text("You Won", mouseX, mouseY);
   }
 
   int t = score.timer();
