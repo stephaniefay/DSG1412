@@ -7,14 +7,14 @@ public class Special {
 
   boolean ready = false;
 
-  boolean isSpecialReady () {
+  public boolean isSpecialReady () {
     calculateSpecial();
 
     if (ready) return true;
     else return false;
   }
 
-  void calculateSpecial() {
+  protected void calculateSpecial() {
     timerSpecial = score.timer;
     if (timerSpecial == lastSecond) return;
     else {
@@ -25,12 +25,25 @@ public class Special {
     if ((!ready) && (percentage==100)) ready = !ready;
   }
   
-  void useSpecial () {
+  public void useSpecial () {
     if (!ready) return;
     balls.get(0).stopBalls();
     
     percentage = 0;
     ready = !ready;
+    
+  }
+  
+  public void showSpecial () {
+    colorMode(RGB);
+    fill(204, 204, 0);
+    rect(0,0,percentage*6, 20);
+    
+    String showPer = "Special: " + percentage + "%";
+    textFont(loadFont("font.vlw"));
+    textSize(25);
+    fill(255);
+    text(showPer, 0, 20);
     
   }
   

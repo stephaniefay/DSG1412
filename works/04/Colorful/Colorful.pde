@@ -38,6 +38,7 @@ void draw() {
 
     background(51);
     music.drawBackground();
+    special.showSpecial();
 
     for (Ball b : balls) {
       b.update();
