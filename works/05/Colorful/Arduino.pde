@@ -8,9 +8,7 @@ public class ArduinoColorful {
     int movementX = a.analogRead(0);
     int movementY = a.analogRead(1);
     
-    println(movementX, movementY);
-    
-    if ( movementX > 300 ) {
+    if ( movementX > 400 ) {
       if (keyboard.isKeyDown('d') == false) {
         keyboard.setKeyDown('d', true);
         balls.get(0).velocity = control.keyDown('d', balls.get(0).velocity);
@@ -21,7 +19,7 @@ public class ArduinoColorful {
         balls.get(0).velocity = control.keyDown('a', balls.get(0).velocity);
         
       }
-    } else if ( (movementX > 200) && (movementX < 300) ){
+    } else if ( (movementX > 200) && (movementX < 400) ){
       keyboard.setKeyDown('a', false);
       keyboard.setKeyDown('d', false);
       balls.get(0).velocity = control.keyUp('a', balls.get(0).velocity);
@@ -29,7 +27,7 @@ public class ArduinoColorful {
       
     }
     
-    if ( movementY > 300) {
+    if ( movementY > 400) {
       if (keyboard.isKeyDown('w') == false) {
         keyboard.setKeyDown('w', true);
         balls.get(0).velocity = control.keyDown('w', balls.get(0).velocity);
@@ -41,7 +39,7 @@ public class ArduinoColorful {
         balls.get(0).velocity = control.keyDown('s', balls.get(0).velocity);
         
       }
-    } else if ( (movementY > 200) && (movementY < 300) ) {
+    } else if ( (movementY > 200) && (movementY < 400) ) {
       keyboard.setKeyDown('s', false);
       keyboard.setKeyDown('w', false);
       balls.get(0).velocity = control.keyUp('w', balls.get(0).velocity);
@@ -50,16 +48,13 @@ public class ArduinoColorful {
       
     }
     
-    println(balls.get(0).velocity);
+    if (special.isSpecialReady())
+      a.digitalWrite(12, a.HIGH);
+    else
+      a.digitalWrite(12, a.LOW);
     
-    /*
-    if ( (movement > 400) && (movement < 550) ) {
-      balls.get(0).velocity = control.keyUp('a', balls.get(0).velocity);
-      keyboard.setKeyDown('a', false);
-      balls.get(0).velocity = control.keyUp('d', balls.get(0).velocity);
-      keyboard.setKeyDown('d', false);
-    }
-    */
+    if ( movementY-movementX <=100 )
+      control.keyDown('m', balls.get(0).velocity);
     
   }
 }

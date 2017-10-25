@@ -24,6 +24,7 @@ void setup() {
   arduino = new ArduinoColorful();
   
   arduino.a = new Arduino(this, Arduino.list()[0], 57600);
+  arduino.a.digitalWrite(12, arduino.a.OUTPUT);
 
   balls.add(new Ball(100, 100, 20, true, 0));
   balls.add(new Ball(700, 400, (int)(10 + (Math.random()*40)), false, 1));
